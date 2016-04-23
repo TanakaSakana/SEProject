@@ -8,7 +8,7 @@ public class SPUtil {
         SharedPreferences sharedPreferences = activity.getSharedPreferences(PreferenceName, 0);
         Settings.IP_ADDRESS = sharedPreferences.getString("IP_ADDRESS", "");
         Settings.USERNAME = sharedPreferences.getString("USERNAME", "");
-        Settings.IS_NOTIFY = sharedPreferences.getBoolean("IS_NOTIFY", false);
+        Settings.IS_NOTIFY = sharedPreferences.getBoolean("IS_NOTIFY", true);
     }
 
     public static void saveSP(String PreferenceName, Activity activity) {

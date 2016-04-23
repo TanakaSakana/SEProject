@@ -59,8 +59,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void inflateLayout() {
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -68,11 +70,20 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportActionBar().setTitle("Home Page");
     }
 
-
     public void inflateFragment() {
         ft = getSupportFragmentManager().beginTransaction();
-        fg = new MainFragment();
-        ft.replace(R.id.fragment_content, fg).commit();
+        if (getIntent().hasExtra("REDIRECT")) {
+            String reflag =getIntent().getStringExtra("REDIRECT");
+            switch (reflag) {
+                case "MsgFragment":
+                    fg = new MsgFragment();
+                    ft.replace(R.id.fragment_content, fg).commit();
+                    break;
+            }
+        } else {
+            fg = new MainFragment();
+            ft.replace(R.id.fragment_content, fg).commit();
+        }
     }
 
     public void updateDrawer() {
@@ -83,26 +94,27 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     public void initServ() {
+        SPUtil.fetchSP("Settings", this);
         servIntent = new Intent(this, MsgServices.class);
         startService(servIntent);
-        SPUtil.fetchSP("Settings", this);
     }
 
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     private long mBackPressed;
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
-            if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
-            {
+            if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
                 android.os.Process.killProcess(android.os.Process.myPid());
                 System.exit(1);
                 return;
+            } else {
+                Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show();
             }
-            else { Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show(); }
 
             mBackPressed = System.currentTimeMillis();
         }
@@ -119,7 +131,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (!(fg instanceof MainFragment)) {
                     ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
                     getSupportActionBar().setTitle(TAG);
-                    inflateFragment();
+                    fg = new MainFragment();
+                    ft.replace(R.id.fragment_content, fg).commit();
                 }
                 break;
             case R.id.nav_main:
@@ -134,9 +147,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 }
                 break;
             case R.id.nav_message:
-                fg = new MsgFragment();
-                ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
-                ft.replace(R.id.fragment_content, fg).commit();
+                if (!(fg instanceof MsgFragment)) {
+                    fg = new MsgFragment();
+                    ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
+                    ft.replace(R.id.fragment_content, fg).commit();
+                }
                 break;
             case R.id.nav_setting:
                 if (!(fg instanceof SettingFragment)) {
@@ -148,7 +163,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_logout:
                 Toast.makeText(MainActivity.this, "Logout Sucessful.", Toast.LENGTH_SHORT);
                 stopService(servIntent);
-                Intent intent = new Intent(this,LoginActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
                 this.finish();

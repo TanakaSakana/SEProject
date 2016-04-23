@@ -145,14 +145,23 @@ public class MsgTask {
 
                 NotificationManager notificationManager = (NotificationManager) mContext.getSystemService(Context.NOTIFICATION_SERVICE);
                 Intent intent2 = new Intent(mContext, MainActivity.class);
-                intent2.putExtra("Fragment", "MsgFragment");
+                intent2.putExtra("REDIRECT", "MsgFragment");
                 PendingIntent pendingIntent = PendingIntent.getActivity(mContext, 0, intent2, 0);
                 long[] vib = {200, 200, 200, 200};
                 Notification notification = new Notification.Builder(mContext)
                         .setSmallIcon(R.drawable.ic_app)
+
                         .setContentTitle(messageList.getUnread().get(messageList.getUnread().size() - 1).getTitle())
-                        .setContentText(String.format("You have %d unread message.", messageList.getUnread().size()))
-                        .setContentInfo("This is Info")
+                        .setContentText(String.format("%s sends you a message",messageList.getUnread().get(messageList.getUnread().size() - 1).getSender()))
+                        //.setContentInfo()
+                        .setNumber(messageList.getUnread().size())
+
+                        .setStyle(new Notification.BigTextStyle()
+                                .bigText(messageList.getUnread().get(messageList.getUnread().size() - 1).getContent())
+                                .setSummaryText("Unread Message"))
+                                //.setBigContentTitle()
+
+                        .setAutoCancel(true)
                         .setContentIntent(pendingIntent)
                         .setLights(0xff0000ff, 100, 100)
                         .setVibrate(vib)
