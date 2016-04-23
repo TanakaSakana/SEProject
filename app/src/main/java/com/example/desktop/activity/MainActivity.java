@@ -33,6 +33,7 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     static final String TAG = "Home Page";
+    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
     TextView username;
     Toolbar toolbar;
     DrawerLayout drawer;
@@ -40,10 +41,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     NavigationView navigationView;
     Fragment fg;
     FragmentTransaction ft;
-
     Intent servIntent;
     //Implement Passing Method to Fragment
     ArrayList<MyOnTouchListener> onTouchListeners = new ArrayList<>(10);
+    private long mBackPressed;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -73,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public void inflateFragment() {
         ft = getSupportFragmentManager().beginTransaction();
         if (getIntent().hasExtra("REDIRECT")) {
-            String reflag =getIntent().getStringExtra("REDIRECT");
+            String reflag = getIntent().getStringExtra("REDIRECT");
             switch (reflag) {
                 case "MsgFragment":
                     fg = new MsgFragment();
@@ -98,9 +99,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         servIntent = new Intent(this, MsgServices.class);
         startService(servIntent);
     }
-
-    private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
-    private long mBackPressed;
 
     @Override
     public void onBackPressed() {

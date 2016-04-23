@@ -22,9 +22,8 @@ import com.example.desktop.project.R;
 import com.example.desktop.setting.Settings;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
-    LoginDataBaseAdapter loginDataBaseAdapter;
-
     private static final int TIME_INTERVAL = 2000; // # milliseconds, desired time passed between two back presses.
+    LoginDataBaseAdapter loginDataBaseAdapter;
     private long mBackPressed;
 
     @Override
@@ -111,13 +110,11 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onBackPressed() {
-        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis())
-        {
+        if (mBackPressed + TIME_INTERVAL > System.currentTimeMillis()) {
             android.os.Process.killProcess(android.os.Process.myPid());
             System.exit(1);
             return;
-        }
-        else {
+        } else {
             Toast.makeText(getBaseContext(), "Tap back button in order to exit", Toast.LENGTH_SHORT).show();
         }
         mBackPressed = System.currentTimeMillis();

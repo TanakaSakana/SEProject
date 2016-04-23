@@ -152,14 +152,14 @@ public class MsgTask {
                         .setSmallIcon(R.drawable.ic_app)
 
                         .setContentTitle(messageList.getUnread().get(messageList.getUnread().size() - 1).getTitle())
-                        .setContentText(String.format("%s sends you a message",messageList.getUnread().get(messageList.getUnread().size() - 1).getSender()))
+                        .setContentText(String.format("%s sends you a message", messageList.getUnread().get(messageList.getUnread().size() - 1).getSender()))
                         //.setContentInfo()
                         .setNumber(messageList.getUnread().size())
 
                         .setStyle(new Notification.BigTextStyle()
                                 .bigText(messageList.getUnread().get(messageList.getUnread().size() - 1).getContent())
                                 .setSummaryText("Unread Message"))
-                                //.setBigContentTitle()
+                        //.setBigContentTitle()
 
                         .setAutoCancel(true)
                         .setContentIntent(pendingIntent)

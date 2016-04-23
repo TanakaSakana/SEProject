@@ -5,10 +5,12 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.view.View;
-import android.widget.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import com.example.desktop.project.LoginDataBaseAdapter;
 import com.example.desktop.project.R;
@@ -45,8 +47,7 @@ public class register2 extends Activity {
         btnCreateAccount.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
-                if (firstName == null || lastName == null || bYear == null || bMonth == null || bDay == null || SexGroup == null || eMail == null)
-                {
+                if (firstName == null || lastName == null || bYear == null || bMonth == null || bDay == null || SexGroup == null || eMail == null) {
                     Toast.makeText(register2.this, "Please fill in your information", Toast.LENGTH_SHORT);
                     return;
                 }

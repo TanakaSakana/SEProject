@@ -6,13 +6,17 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.widget.*;
-import java.util.regex.*;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.desktop.project.LoginDataBaseAdapter;
 import com.example.desktop.project.R;
 
-public class register extends Activity implements TextWatcher{
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class register extends Activity implements TextWatcher {
     LoginDataBaseAdapter loginDataBaseAdapter;
     private EditText user;
     private EditText PW;
@@ -32,11 +36,9 @@ public class register extends Activity implements TextWatcher{
     @Override
     public void afterTextChanged(Editable s) {
         int i = 0;
-        try
-        {
+        try {
             i = Integer.valueOf(s.toString());
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Pattern p = Pattern.compile("[^a-z0-9 ]", Pattern.CASE_INSENSITIVE);

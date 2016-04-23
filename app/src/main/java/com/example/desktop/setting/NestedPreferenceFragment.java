@@ -38,7 +38,7 @@ public class NestedPreferenceFragment extends PreferenceFragment implements Pref
     public void initScreen() {
         SPUtil.fetchSP("Settings", getActivity());
         if (Settings.IP_ADDRESS != "")
-        ip.setSummary("IP Address : " + Settings.IP_ADDRESS);
+            ip.setSummary("IP Address : " + Settings.IP_ADDRESS);
         if (Settings.USERNAME != "")
             username.setSummary("Username : " + Settings.USERNAME);
     }

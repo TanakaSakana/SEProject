@@ -56,7 +56,7 @@ public class SettingFragment extends Fragment {
     @Override
     public void onDestroyView() {
         Log.e(TAG, "onDestroyView");
-        SPUtil.saveSP("Settings",getActivity());
+        SPUtil.saveSP("Settings", getActivity());
         super.onDestroyView();
 
     }
