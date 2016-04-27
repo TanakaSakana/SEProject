@@ -4,30 +4,39 @@
     android:layout_height="wrap_content"
     android:layout_centerHorizontal="true"
     android:layout_centerVertical="true"
+    android:background="@drawable/background"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/msg_infoSender"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sender: " />
+        android:text="Sender: "
+        android:textSize="20sp"
+        android:layout_marginLeft="5dp"/>
 
     <TextView
         android:id="@+id/msg_infoRecipient"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Recipient: " />
+        android:text="Recipient: "
+        android:layout_marginLeft="5dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/msg_infoTitle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title: " />
+        android:text="Title: "
+        android:layout_marginLeft="5dp"
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/msg_infoContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:minLines="10"
-        android:text="Content: " />
+        android:text="Content: "
+        android:layout_marginLeft="5dp"
+        android:textSize="20sp"/>
 </LinearLayout>

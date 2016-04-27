@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.desktop.activity.MainActivity;
 import com.example.desktop.project.R;
 import com.example.desktop.setting.Settings;
 
@@ -61,7 +62,6 @@ public class Event_Edit extends AppCompatActivity implements View.OnClickListene
                 Settings.adapter.addAll(Settings.EventHoldList);
                 Settings.adapter.notifyDataSetChanged();
                 getSupportFragmentManager().popBackStack("MainList", 0);
-
                 this.finish();
                 break;
             case R.id.event_form_delete:
@@ -71,6 +71,10 @@ public class Event_Edit extends AppCompatActivity implements View.OnClickListene
                 Settings.adapter.clear();
                 Settings.adapter.addAll(Settings.EventHoldList);
                 Settings.adapter.notifyDataSetChanged();
+                Intent backStack = new Intent(this, MainActivity.class);
+                backStack.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                backStack.putExtra("REDIRECT", "EventFragment");
+                startActivity(backStack);
                 this.finish();
                 break;
             case R.id.val_location:

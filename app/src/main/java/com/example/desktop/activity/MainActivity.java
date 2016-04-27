@@ -80,6 +80,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     fg = new MsgFragment();
                     ft.replace(R.id.fragment_content, fg).commit();
                     break;
+                case "EventFragment":
+                    fg = new Fragment_category();
+                    ft.replace(R.id.fragment_content, fg).commit();
+                    break;
             }
         } else {
             fg = new MainFragment();
