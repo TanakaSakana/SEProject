@@ -11,6 +11,7 @@ import android.view.MenuInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
 import android.widget.ViewFlipper;
 
@@ -24,12 +25,22 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
     GestureDetector detector;
     MainActivity.MyOnTouchListener myOnTouchListener;
 
+
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        if (android.os.Build.VERSION.SDK_INT >= 11) {
+            getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
+        }
+        super.onCreate(savedInstanceState);
+    }
+
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.fragment_mainactivity, null);
         setHasOptionsMenu(true);
         switcher = (ViewFlipper) root.findViewById(R.id.switcher);
+        switcher.setDrawingCacheEnabled(true);
         detector = new GestureDetector(
                 getActivity(), this);
         myOnTouchListener = new MainActivity.MyOnTouchListener() {
@@ -82,10 +93,12 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
         if (e1.getX() - e2.getX() > 120) {
+            switcher.setFlipInterval(0);
             switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_left_in));
             switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_left_out));
             switcher.showNext();
         } else if (e2.getX() - e1.getX() > 120) {
+            switcher.setFlipInterval(0);
             switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_right_out));
             switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_right_in));
             switcher.showPrevious();
