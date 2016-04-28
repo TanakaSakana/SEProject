@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.util.Log;
 import android.view.GestureDetector;
 import android.view.LayoutInflater;
@@ -15,6 +17,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.view.animation.AnimationUtils;
+import android.widget.TextView;
 import android.widget.ViewFlipper;
 
 import com.example.desktop.project.R;
@@ -34,12 +37,14 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
             getActivity().getWindow().setFlags(WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED, WindowManager.LayoutParams.FLAG_HARDWARE_ACCELERATED);
         }
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_mainactivity, container,false);
+        final View root = inflater.inflate(R.layout.fragment_mainactivity, container,false);
         setHasOptionsMenu(true);
         switcher = (ViewFlipper) root.findViewById(R.id.switcher);
         switcher.setDrawingCacheEnabled(true);
@@ -50,25 +55,20 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
             public boolean onTouch(MotionEvent ev) {
                 boolean result = detector.onTouchEvent(ev);
                 return result;
+
+
             }
         };
 
         ((MainActivity) getActivity()).registerMyOnTouchListener(myOnTouchListener);
+
+        TextView textView =(TextView)root.findViewById(R.id.textView1);
+        textView.setClickable(true);
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        String text = "<a href='http://www.google.com'> Google </a>";
+        textView.setText(Html.fromHtml(text));
+
         return root;
-    }
-    public void openBrowser(View view){
-
-        //Get url from tag
-        String url = (String)view.getTag();
-
-        Intent intent = new Intent();
-        intent.setAction(Intent.ACTION_VIEW);
-        intent.addCategory(Intent.CATEGORY_BROWSABLE);
-
-        //pass the url to intent data
-        intent.setData(Uri.parse(url));
-
-        startActivity(intent);
     }
 
     @Override
@@ -108,12 +108,12 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        if (e1.getY() - e2.getY() > 120) {
+            if (e1.getY() - e2.getY() > 120) {
             switcher.setFlipInterval(0);
             switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_up_in));
             switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_up_out));
             switcher.showNext();
-        } else if (e2.getY() - e1.getY() > 120) {
+            } else if (e2.getY() - e1.getY() > 120) {
             switcher.setFlipInterval(0);
             switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_down_out));
             switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_down_in));

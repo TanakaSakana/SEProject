@@ -31,7 +31,7 @@ public class ProfileActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.action_bar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
+        getSupportActionBar().setTitle("Profile Setting");
         profilepic = (ImageView) findViewById(R.id.profilepic);
         habit1 = (ImageView) findViewById(R.id.habits1);
         habit2 = (ImageView) findViewById(R.id.habits2);

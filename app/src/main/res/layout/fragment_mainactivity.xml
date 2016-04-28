@@ -18,9 +18,8 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:src="@drawable/homepageposter"
-                android:tag="https://hk.deals.yahoo.com/hong-kong/offer/476322" />
+                android:layout_height="450dp"
+                android:src="@drawable/homepageposter" />
 
             <TextView
                 android:id="@+id/textView1"
@@ -28,6 +27,7 @@
                 android:layout_height="wrap_content"
                 android:text="Link"
                 android:textSize="20sp"
+
 
                 />
 
