@@ -1,5 +1,7 @@
 package com.example.desktop.activity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -37,7 +39,7 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_mainactivity, null);
+        View root = inflater.inflate(R.layout.fragment_mainactivity, container,false);
         setHasOptionsMenu(true);
         switcher = (ViewFlipper) root.findViewById(R.id.switcher);
         switcher.setDrawingCacheEnabled(true);
@@ -53,6 +55,20 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
 
         ((MainActivity) getActivity()).registerMyOnTouchListener(myOnTouchListener);
         return root;
+    }
+    public void openBrowser(View view){
+
+        //Get url from tag
+        String url = (String)view.getTag();
+
+        Intent intent = new Intent();
+        intent.setAction(Intent.ACTION_VIEW);
+        intent.addCategory(Intent.CATEGORY_BROWSABLE);
+
+        //pass the url to intent data
+        intent.setData(Uri.parse(url));
+
+        startActivity(intent);
     }
 
     @Override

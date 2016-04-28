@@ -19,7 +19,10 @@
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:src="@drawable/homepageposter" />
+                android:src="@drawable/homepageposter"
+                android:tag="https://hk.deals.yahoo.com/hong-kong/offer/476322"
+                android:onClick="openBrowser"/>
+            />
 
             <ScrollView
                 android:layout_width="wrap_content"
@@ -28,22 +31,10 @@
             </ScrollView>
         </LinearLayout>
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="240dp"
-                android:src="@drawable/s2" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40sp"
-                android:text="Hello Worldoading is not possible. App measurement disabled"
-                android:textColor="@color/primary_text_material_dark" />
-        </LinearLayout>
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/homepageposter2" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -51,32 +42,10 @@
             android:orientation="vertical">
 
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="240dp"
-                android:src="@drawable/s3" />
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:src="@drawable/homepageposter3" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40sp"
-                android:text="Hello Worldoading is not possible. App measurement disabled"
-                android:textColor="@color/primary_text_material_dark" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="240dp"
-                android:src="@drawable/s4" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="40sp"
-                android:text="Hello Worldoading is not possible. App measurement disabled"
-                android:textColor="@color/primary_text_material_dark" />
         </LinearLayout>
     </ViewFlipper>
 </RelativeLayout>
