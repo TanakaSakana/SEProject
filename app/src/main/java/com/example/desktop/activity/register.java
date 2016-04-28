@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -99,19 +100,17 @@ public class register extends Activity implements TextWatcher {
                     intent.putExtra("PassWord", password);
                     startActivity(intent);
                 }
-
-                Button back = (Button) findViewById(R.id.r1_back);
-                back.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        setResult(RESULT_OK);
-                        finish();
-                    }
-                });
             }
 
         });
-
+        Button back = (Button) findViewById(R.id.r1_back);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.e("Click","Exir");
+                finish();
+            }
+        });
     }
 
     protected void onDestroy() {
