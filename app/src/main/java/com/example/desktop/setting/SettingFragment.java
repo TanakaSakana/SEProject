@@ -30,7 +30,7 @@ public class SettingFragment extends Fragment {
         setHasOptionsMenu(true);
         ((MainActivity) getActivity()).getSupportActionBar().setTitle("Setting");
         fragment = (NestedPreferenceFragment) getActivity().getFragmentManager().findFragmentById(R.id.static_fragment);
-
+        root.setBackgroundResource(R.drawable.background);
         return root;
     }
 
