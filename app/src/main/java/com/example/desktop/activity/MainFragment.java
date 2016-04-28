@@ -108,15 +108,15 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
 
     @Override
     public boolean onFling(MotionEvent e1, MotionEvent e2, float velocityX, float velocityY) {
-        if (e1.getX() - e2.getX() > 120) {
+        if (e1.getY() - e2.getY() > 120) {
             switcher.setFlipInterval(0);
-            switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_left_in));
-            switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_left_out));
+            switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_up_in));
+            switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_up_out));
             switcher.showNext();
-        } else if (e2.getX() - e1.getX() > 120) {
+        } else if (e2.getY() - e1.getY() > 120) {
             switcher.setFlipInterval(0);
-            switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_right_out));
-            switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_right_in));
+            switcher.setOutAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_down_out));
+            switcher.setInAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.push_down_in));
             switcher.showPrevious();
         }
         return false;
