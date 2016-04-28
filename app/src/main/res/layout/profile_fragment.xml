@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:layout_gravity="center">
+    android:layout_gravity="center"
+    android:background="@drawable/background">
 
     <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -42,12 +43,12 @@
                     android:text="Gender"
                     android:textSize="24dp" />
 
-                <TextView
-                    android:id="@+id/profile_sex"
+                <Spinner
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_column="1"
-                    android:textSize="24dp" />
+                    android:id="@+id/spinner"
+                    android:entries="@array/gender" />
+
             </TableRow>
 
             <TableRow
@@ -101,7 +102,7 @@
                 <EditText
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:hint="*****" />
+                    android:hint= "" />
             </TableRow>
         </TableLayout>
 
