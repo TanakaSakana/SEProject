@@ -2,19 +2,20 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    android:orientation="vertical">
 
     <ViewFlipper
         android:id="@+id/switcher"
-            android:layout_width="match_parent"
-            android:layout_height="500dp"
-            android:flipInterval="3000"
-            android:persistentDrawingCache="animation">
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        android:flipInterval="3000"
+        android:persistentDrawingCache="animation">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
             <ImageView
@@ -26,40 +27,47 @@
                 android:id="@+id/textView1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Link"
-                android:textSize="20sp"
-
-
-                />
+                android:text="Click here to buy the coupon"
+                android:textSize="25sp" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center_horizontal"
             android:orientation="vertical">
 
-                <ImageView
+            <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
                 android:src="@drawable/homepageposter2" />
-        <TextView
-            android:id="@+id/textView2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Link"
-            android:textSize="20sp"/>
 
-
-
-            <ScrollView
+            <TextView
+                android:id="@+id/textView2"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-            </ScrollView>
-
+                android:layout_height="wrap_content"
+                android:text="Click here to buy the coupon"
+                android:textSize="25sp" />
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
 
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="450dp"
+                android:src="@drawable/homepageposter3" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HK Hike website"
+                android:textSize="25sp" />
+        </LinearLayout>
     </ViewFlipper>
 </RelativeLayout>
