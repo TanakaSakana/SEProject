@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -71,21 +71,27 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Year"></EditText>
+
+                android:hint="YYYY"
+                android:inputType="number"></EditText>
+
 
             <EditText
                 android:id="@+id/month"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Month"></EditText>
+                android:hint="MM"
+                android:inputType="number"></EditText>
+
 
             <EditText
                 android:id="@+id/day"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:hint="Day"></EditText>
+                android:hint="DD"
+                android:inputType="number"></EditText>
         </TableRow>
     </TableLayout>
 
