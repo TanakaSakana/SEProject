@@ -216,7 +216,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
     public void openBrowser(View view){
-
+//Hello World
         //Get url from tag
         String url = (String)view.getTag();
 
