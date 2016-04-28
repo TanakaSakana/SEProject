@@ -18,30 +18,12 @@
 
             <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="250dp"
-                android:src="@drawable/s1" />
+                android:layout_height="match_parent"
+                android:src="@drawable/homepageposter" />
 
             <ScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="200dp"
-                    android:padding="10dp"
-                    android:text="Hello 04-27 21:37:20.413 13654-13707/com.example.desktop.project E/GMPM: getGoogleAppId failed with status: 10
-04-27 21:37:20.414 13654-13707/com.example.desktop.project E/GMPM: Uploading is not possible. App measurement disabled
-04-27 21:38:01.308 15369-15428/com.example.desktop.project E/GMPM: getGoogleAppId failed with status: 10
-04-27 21:38:01.310 15369-15428/com.example.desktop.project E/GMPM: Uploading is not possible. App measurement disabled
-04-27 21:38:19.072 16035-16086/com.example.desktop.project E/GMPM: getGoogleAppId failed with status: 10
-04-27 21:38:19.074 16035-16086/com.example.desktop.project E/GMPM: Uploading is not possible. App measurement disabled
-04-27 21:38:29.446 16472-16525/com.example.desktop.project E/GMPM: getGoogleAppId failed with status: 10
-04-27 21:38:29.447 16472-16525/com.example.desktop.project E/GMPM: Uploading is not possible. App measurement disabled
-04-27 21:41:31.553 23816-23876/com.example.desktop.project E/GMPM: getGoogleAppId failed with status: 10
-04-27 21:41:31.555 23816-23876/com.example.desktop.project E/GMPM: Uploading is not possible. App measurement disabled
-04-27 21:43:35.397 28439-28897/com.example.desktop.project E/GMPM: getGoogleAppId failed with status: 10
-04-27 21:43:35.401 28439-28897/com.example.desktop.project E/GMPM: Uploading is not possible. App measurement disabled is not possible. App measurement disabled"
-                    android:textSize="24dp" />
             </ScrollView>
         </LinearLayout>
 
