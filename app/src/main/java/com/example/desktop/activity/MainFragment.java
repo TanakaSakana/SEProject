@@ -69,17 +69,10 @@ public class MainFragment extends Fragment implements GestureDetector.OnGestureL
         textView.setText(Html.fromHtml(text));
 
         TextView textView2 =(TextView)root.findViewById(R.id.textView2);
-        textView.setClickable(true);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        textView2.setClickable(true);
+        textView2.setMovementMethod(LinkMovementMethod.getInstance());
         String text2 = "<a href='https://hk.deals.yahoo.com/hong-kong/offer/441751'> Link </a>";
-        textView.setText(Html.fromHtml(text));
-
-        TextView textView3 =(TextView)root.findViewById(R.id.textView3);
-        textView.setClickable(true);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
-        String text3 = "<a href='www.oasistrek.com/'> Link </a>";
-        textView.setText(Html.fromHtml(text));
-
+        textView2.setText(Html.fromHtml(text2));
 
 
         return root;
