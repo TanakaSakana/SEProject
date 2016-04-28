@@ -21,9 +21,11 @@
                 android:layout_height="match_parent"
                 android:src="@drawable/homepageposter" />
 
+
             <ScrollView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content">
+
             </ScrollView>
         </LinearLayout>
 
