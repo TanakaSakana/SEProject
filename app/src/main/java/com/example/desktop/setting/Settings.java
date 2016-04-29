@@ -13,6 +13,7 @@ public class Settings {
 
     public static String IP_ADDRESS = "192.168.16.1"; //Server IP here
     public static String USERNAME = "Admin";
+    public static String SEX ="M";
     public static boolean IS_NOTIFY = true;
 
     public static Uri propic;

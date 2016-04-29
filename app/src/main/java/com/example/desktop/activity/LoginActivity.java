@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         notificationManager.notify(notifyID, notification); // 發送通知
                     }
                     Settings.USERNAME = userName1;
+
                     Intent mainintent = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(mainintent);
                     finish();

@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.desktop.project.R;
 import com.example.desktop.setting.Settings;
@@ -21,6 +22,7 @@ public class ProfileActivity extends AppCompatActivity {
     int[] travel = {R.mipmap.travel1, R.mipmap.travel2};
     int[] other = {R.mipmap.other1, R.mipmap.other2};
     private Toolbar toolbar;
+    TextView Sex;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,10 @@ public class ProfileActivity extends AppCompatActivity {
         habit5 = (ImageView) findViewById(R.id.habits5);
         habit6 = (ImageView) findViewById(R.id.habits6);
 
+
+        Sex = (TextView)findViewById(R.id.Sex);
+
+        Sex.setText(Settings.SEX);
 
         profilepic.setOnClickListener(new View.OnClickListener() {
             @Override
