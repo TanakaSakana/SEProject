@@ -89,7 +89,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             case R.id.register:
                 Intent intent2 = new Intent(LoginActivity.this, register.class);
-startActivity(intent2);                break;
+                startActivity(intent2);
+                break;
+
+            case R.id.forgot:
+                Toast.makeText(this, "Please email to info@chatout.com in order to retreat your password", Toast.LENGTH_SHORT).show();
+                break;
         }
 
     }
