@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import com.example.desktop.project.LoginDataBaseAdapter;
 import com.example.desktop.project.R;
+import com.example.desktop.setting.Settings;
 
 public class register2 extends Activity {
     LoginDataBaseAdapter loginDataBaseAdapter;
@@ -61,7 +62,7 @@ public class register2 extends Activity {
                 int selectedId = SexGroup.getCheckedRadioButtonId();
                 SexSelect = (RadioButton) findViewById(selectedId);
                 String Sex = SexSelect.getText().toString();
-
+                Settings.SEX = Sex;
 
                 // Save the Data in Database
                 loginDataBaseAdapter.insertEntry(UserName, PassWord, FirstName, LastName, Sex, FBirthday, Email);
