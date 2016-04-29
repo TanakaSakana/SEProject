@@ -133,7 +133,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         switch (item.getItemId()) {
             case R.id.nav_home:
                 if (!(fg instanceof MainFragment)) {
-                    ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
+                    ft.setCustomAnimations(R.anim.push_right_in, R.anim.push_right_out);
                     getSupportActionBar().setTitle(TAG);
                     fg = new MainFragment();
                     ft.replace(R.id.fragment_content, fg).commit();
@@ -146,21 +146,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_eventlist:
                 if (!(fg instanceof Fragment_category)) {
                     fg = new Fragment_category();
-                    ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
+                    ft.setCustomAnimations(R.anim.push_right_in, R.anim.push_right_out);
                     ft.replace(R.id.fragment_content, fg).commit();
                 }
                 break;
             case R.id.nav_message:
                 if (!(fg instanceof MsgFragment)) {
                     fg = new MsgFragment();
-                    ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
+                    ft.setCustomAnimations(R.anim.push_right_in, R.anim.push_right_out);
                     ft.replace(R.id.fragment_content, fg).commit();
                 }
                 break;
             case R.id.nav_setting:
                 if (!(fg instanceof SettingFragment)) {
                     fg = new SettingFragment();
-                    ft.setCustomAnimations(R.anim.push_up_in, R.anim.push_up_out);
+                    ft.setCustomAnimations(R.anim.push_right_in, R.anim.push_right_out);
                     ft.replace(R.id.fragment_content, fg).commit();
                 }
                 break;
@@ -216,17 +216,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     }
     public void openBrowser(View view){
-//Hello World
-        //Get url from tag
+
         String url = (String)view.getTag();
 
         Intent intent = new Intent();
         intent.setAction(Intent.ACTION_VIEW);
         intent.addCategory(Intent.CATEGORY_BROWSABLE);
-
         //pass the url to intent data
         intent.setData(Uri.parse(url));
-
         startActivity(intent);
     }
 }
